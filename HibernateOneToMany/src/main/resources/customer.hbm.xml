@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+
+<hibernate-mapping package="com.jyoti.hibernate.model">
+
+	<class name="Customer" table="CUSTOMER">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		
+		<property name="custId" type="string">
+			<column name="cust_id"></column>
+		</property>
+		
+		<property name="name" type="string">
+			<column name="cust_name"></column>
+		</property>
+		<property name="address" type="string">
+			<column name="cust_address"></column>
+		</property>
+		
+		<many-to-one name="branch" class="Branch">
+			<column name="branch_id" not-null="true"></column>
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>
